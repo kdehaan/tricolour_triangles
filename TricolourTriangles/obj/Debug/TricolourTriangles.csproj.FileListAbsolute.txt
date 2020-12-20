@@ -5,3 +5,10 @@ E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\bin\Debug\Tricolo
 E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\bin\Debug\TricolourTriangles.pdb
 E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\obj\Debug\TricolourTriangles.exe
 E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\obj\Debug\TricolourTriangles.pdb
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\bin\Debug\Microsoft.Msagl.dll
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\bin\Debug\Microsoft.Msagl.Drawing.dll
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\bin\Debug\Microsoft.Msagl.GraphViewerGdi.dll
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\bin\Debug\Microsoft.Msagl.xml
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\bin\Debug\Microsoft.Msagl.Drawing.xml
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\bin\Debug\Microsoft.Msagl.GraphViewerGdi.xml
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\obj\Debug\TricolourTriangles.csproj.CopyComplete

@@ -1,30 +1,30 @@
-﻿using System;
-using System;
-using System.Collections.Generic;
+﻿
 
 namespace TricolourTriangles
 {
 
-    /// <summary>
-    /// 
-    /// </summary>
-    class ColourTriangle
+    using System;
+    using System.Collections.Generic;
+
+    public class ColourTriangle
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("Input a perimeter length (must be >= 3):");
-            //while(true)
-            //{
+  
             string input = Console.ReadLine();
             try
             {
-                PolygonGraph polygon = new PolygonGraph(int.Parse(input));
+                Polygon polygon = new Polygon(int.Parse(input));
+                GraphDrawer drawer = new GraphDrawer(polygon);
+                drawer.DrawGraph();
             }
             catch (Exception e) when (e is ArgumentException || e is FormatException)
             {
                 Console.WriteLine(e.Message);
             }
-            //}
+
+
 
         }
     }

@@ -6,17 +6,18 @@ using System.Text;
 
 namespace TricolourTriangles
 {
-    public class PolygonGraph
+    
+    public class Polygon
     {
         private Random random = new Random();
         private List<Colour> Border;
 
-        public PolygonGraph(List<Colour> border)
+        public Polygon(List<Colour> border)
         {
             Border = border;
         }
 
-        public PolygonGraph(int perimeterLength)
+        public Polygon(int perimeterLength)
         {
             if (perimeterLength < 3)
             {
@@ -31,11 +32,13 @@ namespace TricolourTriangles
 
         }
 
-        private IEnumerable<int> GetNodeName()
+        public List<Colour> GetBorder()
         {
-            int index = 0;
-            yield return index++;
+            return Border;
         }
+
+
+        
     }
 
 

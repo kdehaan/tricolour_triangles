@@ -98,3 +98,9 @@ E:\kdehaan\Repositories\tricolour_triangles\UnitTests\obj\Debug\netcoreapp3.1\Tr
 E:\kdehaan\Repositories\tricolour_triangles\UnitTests\obj\Debug\netcoreapp3.1\TricolourTriangles.UnitTests.dll
 E:\kdehaan\Repositories\tricolour_triangles\UnitTests\obj\Debug\netcoreapp3.1\TricolourTriangles.UnitTests.pdb
 E:\kdehaan\Repositories\tricolour_triangles\UnitTests\obj\Debug\netcoreapp3.1\TricolourTriangles.UnitTests.genruntimeconfig.cache
+E:\kdehaan\Repositories\tricolour_triangles\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.Msagl.GraphViewerGdi.dll
+E:\kdehaan\Repositories\tricolour_triangles\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.Msagl.Drawing.dll
+E:\kdehaan\Repositories\tricolour_triangles\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.Msagl.dll
+E:\kdehaan\Repositories\tricolour_triangles\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.Msagl.GraphViewerGdi.xml
+E:\kdehaan\Repositories\tricolour_triangles\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.Msagl.Drawing.xml
+E:\kdehaan\Repositories\tricolour_triangles\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.Msagl.xml
