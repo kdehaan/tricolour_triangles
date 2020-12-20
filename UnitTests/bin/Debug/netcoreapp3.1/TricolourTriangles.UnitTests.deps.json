@@ -1089,11 +1089,8 @@
       },
       "xunit.runner.visualstudio/2.4.3": {},
       "TricolourTriangles/1.0.0": {
-        "dependencies": {
-          "xunit": "2.4.1"
-        },
         "runtime": {
-          "TricolourTriangles.dll": {}
+          "TricolourTriangles.exe": {}
         }
       }
     }

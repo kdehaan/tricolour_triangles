@@ -1651,10 +1651,6 @@
       },
       "TricolourTriangles/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "xunit": "2.4.1"
-        },
         "compile": {
           "bin/placeholder/TricolourTriangles.dll": {}
         },
@@ -5627,8 +5623,8 @@
     },
     "TricolourTriangles/1.0.0": {
       "type": "project",
-      "path": "../TrifoldTriangles/TricolourTriangles.csproj",
-      "msbuildProject": "../TrifoldTriangles/TricolourTriangles.csproj"
+      "path": "../TricolourTriangles/TricolourTriangles.csproj",
+      "msbuildProject": "../TricolourTriangles/TricolourTriangles.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5648,11 +5644,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\kdehaan\\Repositories\\trifold_triangles\\UnitTests\\TricolourTriangles.UnitTests.csproj",
+      "projectUniqueName": "E:\\kdehaan\\Repositories\\tricolour_triangles\\UnitTests\\TricolourTriangles.UnitTests.csproj",
       "projectName": "TricolourTriangles.UnitTests",
-      "projectPath": "E:\\kdehaan\\Repositories\\trifold_triangles\\UnitTests\\TricolourTriangles.UnitTests.csproj",
+      "projectPath": "E:\\kdehaan\\Repositories\\tricolour_triangles\\UnitTests\\TricolourTriangles.UnitTests.csproj",
       "packagesPath": "C:\\Users\\kdehaan\\.nuget\\packages\\",
-      "outputPath": "E:\\kdehaan\\Repositories\\trifold_triangles\\UnitTests\\obj\\",
+      "outputPath": "E:\\kdehaan\\Repositories\\tricolour_triangles\\UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -5674,8 +5670,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "E:\\kdehaan\\Repositories\\trifold_triangles\\TrifoldTriangles\\TricolourTriangles.csproj": {
-              "projectPath": "E:\\kdehaan\\Repositories\\trifold_triangles\\TrifoldTriangles\\TricolourTriangles.csproj"
+            "E:\\kdehaan\\Repositories\\tricolour_triangles\\TricolourTriangles\\TricolourTriangles.csproj": {
+              "projectPath": "E:\\kdehaan\\Repositories\\tricolour_triangles\\TricolourTriangles\\TricolourTriangles.csproj"
             }
           }
         }

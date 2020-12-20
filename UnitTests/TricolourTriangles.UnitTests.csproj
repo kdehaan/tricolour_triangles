@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TrifoldTriangles\TricolourTriangles.csproj" />
+    <ProjectReference Include="..\TricolourTriangles\TricolourTriangles.csproj" />
   </ItemGroup>
 
 </Project>

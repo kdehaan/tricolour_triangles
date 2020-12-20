@@ -1,0 +1,7 @@
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\obj\Debug\TricolourTriangles.csprojAssemblyReference.cache
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\obj\Debug\TricolourTriangles.csproj.CoreCompileInputs.cache
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\bin\Debug\TricolourTriangles.exe.config
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\bin\Debug\TricolourTriangles.exe
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\bin\Debug\TricolourTriangles.pdb
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\obj\Debug\TricolourTriangles.exe
+E:\kdehaan\Repositories\tricolour_triangles\TricolourTriangles\obj\Debug\TricolourTriangles.pdb
