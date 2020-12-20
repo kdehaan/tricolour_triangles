@@ -1,10 +1,15 @@
-﻿
+﻿// <copyright file="GraphDrawer.cs" company="Kevin de Haan (github.com/kdehaan)">
+// Written by Kevin de Haan (github.com/kdehaan)
+// </copyright>
 
 namespace TricolourTriangles
 {
     using System.Collections.Generic;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// Used to maintain and visualize a representation of an evolving Polygon Graph.
+    /// </summary>
     public class GraphDrawer
     {
         private static readonly Dictionary<Colour, Microsoft.Msagl.Drawing.Color> ColourReference
@@ -20,34 +25,42 @@ namespace TricolourTriangles
         private Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
         private int nextNodeName = 0;
 
+
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GraphDrawer"/> class.
         /// </summary>
-        /// <param name="polygon"></param>
-        public GraphDrawer(Polygon polygon)
+        /// <param name="border">Inital node perimeter.</param>
+        public GraphDrawer(List<PolygonNode> border)
         {
 
-            string lastNodeName = null;
-            string firstNodeName = null;
+            PolygonNode lastNode = new PolygonNode(-1, Colour.Red);
+            PolygonNode firstNode = new PolygonNode(-1, Colour.Red);
 
-            foreach (Colour borderColour in polygon.GetBorder())
+            // Note: structs are copied on assignment
+            // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct
+            foreach (PolygonNode node in border)
             {
-                string nodeName = this.GetNodeName();
-                this.CreateNode(nodeName, borderColour);
+                this.CreateNode(node);
 
-                if (lastNodeName != null)
+                if (lastNode.Id == -1)
                 {
-                    this.CreateEdge(lastNodeName, nodeName);
-                } else
+                    firstNode = node;
+                }
+                else
                 {
-                    firstNodeName = nodeName;
+                    this.CreateEdge(lastNode, node);
                 }
 
-                lastNodeName = nodeName;
+                lastNode = node;
             }
-            this.CreateEdge(lastNodeName, firstNodeName);
+
+            this.CreateEdge(lastNode, firstNode);
         }
 
+        /// <summary>
+        /// Produces a visualization of the current GraphDrawer object.
+        /// </summary>
         public void DrawGraph()
         {
             this.viewer.Graph = this.graph;
@@ -58,27 +71,20 @@ namespace TricolourTriangles
             this.form.ShowDialog();
         }
 
-        private void CreateEdge(string a, string b)
+        private void CreateEdge(PolygonNode a, PolygonNode b)
         {
-            Microsoft.Msagl.Drawing.Edge edge = this.graph.AddEdge(a, b);
+            Microsoft.Msagl.Drawing.Edge edge = this.graph.AddEdge(a.Id.ToString(), b.Id.ToString());
             edge.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
         }
 
-        private void CreateNode(string nodeName, Colour nodeColour)
+        private void CreateNode(PolygonNode polygonNode)
         {
-            Microsoft.Msagl.Drawing.Node node = this.graph.AddNode(nodeName);
-            node.Attr.Color = ColourReference[nodeColour];
+            Microsoft.Msagl.Drawing.Node node = this.graph.AddNode(polygonNode.Id.ToString());
+            node.Attr.Color = ColourReference[polygonNode.Type];
             node.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Circle;
         }
 
+        //public void JoinNode(int nodeId, List<>)
 
-
-
-        private string GetNodeName()
-        {
-            return this.nextNodeName++.ToString();
-        }
     }
-
-
 }
