@@ -16,25 +16,22 @@ namespace TricolourTriangles
         /// <summary>
         /// Main console function.
         /// </summary>
-        /// <param name="args">command line arguments</param>
-        public static void Main(string[] args)
+        /// <param name="args">command line arguments.</param>
+        public static void Main()
         {
             Console.WriteLine("Input a perimeter length (must be >= 3):");
-  
+
             string input = Console.ReadLine();
             try
             {
                 Polygon polygon = new Polygon(int.Parse(input));
-                GraphDrawer drawer = new GraphDrawer(polygon);
+                GraphDrawer drawer = new GraphDrawer(polygon.Border);
                 drawer.DrawGraph();
             }
             catch (Exception e) when (e is ArgumentException || e is FormatException)
             {
                 Console.WriteLine(e.Message);
             }
-
-
-
         }
     }
 }

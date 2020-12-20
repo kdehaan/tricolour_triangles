@@ -5,6 +5,10 @@
 indent_style = space
 
 # Xml files
+
+# SA0001: XML comment analysis is disabled due to project configuration
+dotnet_diagnostic.SA0001.severity = none
+
 [*.xml]
 indent_size = 2
 

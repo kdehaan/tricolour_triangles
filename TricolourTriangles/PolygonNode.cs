@@ -15,7 +15,6 @@ namespace TricolourTriangles
     /// </summary>
     public struct PolygonNode
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="PolygonNode"/> struct.
         /// </summary>
@@ -30,11 +29,11 @@ namespace TricolourTriangles
         /// <summary>
         /// Gets the unique id of the node. Positive integer.
         /// </summary>
-        public int Id { get; private set; }
+        public int Id { get; }
 
         /// <summary>
         /// Gets the type of the node. Can be Red, Blue or Green.
         /// </summary>
-        public Colour Type { get; private set; }
+        public Colour Type { get; }
     }
 }

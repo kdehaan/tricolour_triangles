@@ -20,12 +20,9 @@ namespace TricolourTriangles
             { Colour.Blue, Microsoft.Msagl.Drawing.Color.Blue },
         };
 
-        private System.Windows.Forms.Form form = new System.Windows.Forms.Form();
-        private Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
-        private Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
-        private int nextNodeName = 0;
-
-
+        private readonly System.Windows.Forms.Form form = new System.Windows.Forms.Form();
+        private readonly Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+        private readonly Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GraphDrawer"/> class.
@@ -33,7 +30,6 @@ namespace TricolourTriangles
         /// <param name="border">Inital node perimeter.</param>
         public GraphDrawer(List<PolygonNode> border)
         {
-
             PolygonNode lastNode = new PolygonNode(-1, Colour.Red);
             PolygonNode firstNode = new PolygonNode(-1, Colour.Red);
 
@@ -84,7 +80,6 @@ namespace TricolourTriangles
             node.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Circle;
         }
 
-        //public void JoinNode(int nodeId, List<>)
-
+        // public void JoinNode(int nodeId, List<>)
     }
 }

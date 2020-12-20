@@ -13,7 +13,6 @@ namespace TricolourTriangles
     /// </summary>
     public class Polygon
     {
-
         private readonly Random random = new Random();
 
         /// <summary>
@@ -47,9 +46,5 @@ namespace TricolourTriangles
         /// Gets the list of nodes representing the outermost perimeter of the polygon.
         /// </summary>
         public List<PolygonNode> Border { get; private set; }
-
-
     }
-
-
 }

@@ -13,5 +13,4 @@ namespace TricolourTriangles
         Green,
         Blue,
     }
-
 }
