@@ -103,4 +103,3 @@ E:\kdehaan\Repositories\tricolour_triangles\UnitTests\bin\Debug\netcoreapp3.1\Mi
 E:\kdehaan\Repositories\tricolour_triangles\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.Msagl.dll
 E:\kdehaan\Repositories\tricolour_triangles\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.Msagl.GraphViewerGdi.xml
 E:\kdehaan\Repositories\tricolour_triangles\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.Msagl.Drawing.xml
-E:\kdehaan\Repositories\tricolour_triangles\UnitTests\bin\Debug\netcoreapp3.1\Microsoft.Msagl.xml

@@ -14,6 +14,7 @@ namespace TricolourTriangles
     public class Polygon
     {
         private readonly Random random = new Random();
+        private int currentId = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Polygon"/> class using a specific border.
@@ -38,7 +39,7 @@ namespace TricolourTriangles
             Array colourTypes = Enum.GetValues(typeof(Colour));
             this.Border = Enumerable
                 .Range(0, perimeterLength)
-                .Select(i => new PolygonNode(1, (Colour)colourTypes.GetValue(this.random.Next(colourTypes.Length))))
+                .Select(i => new PolygonNode(this.GetNextId(), (Colour)colourTypes.GetValue(this.random.Next(colourTypes.Length))))
                 .ToList();
         }
 
@@ -46,5 +47,10 @@ namespace TricolourTriangles
         /// Gets the list of nodes representing the outermost perimeter of the polygon.
         /// </summary>
         public List<PolygonNode> Border { get; private set; }
+
+        private int GetNextId()
+        {
+            return this.currentId++;
+        }
     }
 }
