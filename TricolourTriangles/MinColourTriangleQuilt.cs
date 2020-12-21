@@ -61,7 +61,7 @@ namespace TricolourTriangles
 
         private static List<QuiltNode> CreateRandomBorder(int perimeterLength)
         {
-            Random random = new Random();
+            Random random = new Random(0);
             if (perimeterLength < 3)
             {
                 throw new ArgumentException("Parameter cannot be less than 3", nameof(perimeterLength));

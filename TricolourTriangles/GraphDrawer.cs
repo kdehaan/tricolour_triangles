@@ -1,4 +1,4 @@
-// <copyright file="GraphDrawer.cs" company="Kevin de Haan (github.com/kdehaan)">
+﻿// <copyright file="GraphDrawer.cs" company="Kevin de Haan (github.com/kdehaan)">
 // Written by Kevin de Haan (github.com/kdehaan)
 // </copyright>
 
@@ -59,6 +59,25 @@ namespace TricolourTriangles
             }
 
             this.CreateEdge(lastNode, firstNode);
+            this.CreateAndLayoutGraph(border);
+        }
+
+        private void CreateAndLayoutGraph(List<QuiltNode> border)
+        {
+            this.graph.CreateGeometryGraph();
+            foreach (QuiltNode node in border)
+            {
+                this.addGeometryNode(node.Id);
+            }
+            var settings = new SugiyamaLayoutSettings();
+            //{
+            //    Transformation = PlaneTransformation.Rotation(Math.PI / 2),
+            //    EdgeRoutingSettings = { EdgeRoutingMode = EdgeRoutingMode.Spline },
+            //};
+
+            var layout = new LayeredLayout(this.graph.GeometryGraph, settings);
+
+            layout.Run();
         }
 
         /// <summary>
@@ -104,6 +123,15 @@ namespace TricolourTriangles
             {
                 node.Attr.FillColor = ColourReference[quiltNode.Type];
             }
+        }
+
+        private void addGeometryNode(int id)
+        {
+            this.graph.GeometryGraph.Nodes.Add(new Node(CreateCurve(40, 40), id.ToString()));
+        }
+        private static ICurve CreateCurve(double w, double h)
+        {
+            return CurveFactory.CreateRectangle(w, h, default(Point));
         }
     }
 }
