@@ -1,4 +1,4 @@
-﻿// <copyright file="Quilt.cs" company="Kevin de Haan (github.com/kdehaan)">
+﻿// <copyright file="MinColourTriangleQuilt.cs" company="Kevin de Haan (github.com/kdehaan)">
 // Written by Kevin de Haan (github.com/kdehaan)
 // </copyright>
 
@@ -11,26 +11,26 @@ namespace TricolourTriangles
     /// <summary>
     /// Creates a 'quilt' (graph) of triangles such that there is a minimal number of 'patches' with three colours of nodes.
     /// </summary>
-    public class Quilt
+    public class MinColourTriangleQuilt : IQuilt
     {
         private GraphDrawer graphDrawer;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Quilt"/> class with random border nodes.
+        /// Initializes a new instance of the <see cref="MinColourTriangleQuilt"/> class with random border nodes.
         /// </summary>
         /// <param name="perimeterLength">The length of the random perimeter.</param>
         /// <param name="drawGraph">Option to disable graph creation.</param>
-        public Quilt(int perimeterLength, bool drawGraph = true)
+        public MinColourTriangleQuilt(int perimeterLength, bool drawGraph = true)
             : this(CreateRandomBorder(perimeterLength), drawGraph)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Quilt"/> class.
+        /// Initializes a new instance of the <see cref="MinColourTriangleQuilt"/> class.
         /// </summary>
         /// <param name="border">A list of nodes to use as a border.</param>
         /// <param name="drawGraph">Option to disable graph creation.</param>
-        public Quilt(List<QuiltNode> border, bool drawGraph = true)
+        public MinColourTriangleQuilt(List<QuiltNode> border, bool drawGraph = true)
         {
             this.Border = border;
             if (drawGraph)
@@ -106,49 +106,57 @@ namespace TricolourTriangles
         private void FindQuiltPatches(bool drawGraph)
         {
             int nextNodeId = this.Border.Count;
-            List<QuiltNode> activeBorder = new List<QuiltNode>(this.Border);
-            List<QuiltEdge> edges = new List<QuiltEdge>
+            List<QuiltNode> activeBorder = new List<QuiltNode>(this.Border); // active nodes under consideration
+            List<QuiltEdge> edges = new List<QuiltEdge> // list of edges that can potentially 'negate' each other
             {
                 new QuiltEdge((activeBorder.LastOrDefault().Type, activeBorder.FirstOrDefault().Type), 0),
             };
 
-            int index = 1;
-            while (index < activeBorder.Count)
+            int borderIndex = 1;
+            while (borderIndex < activeBorder.Count)
             {
-                (Colour, Colour) edgeType = (activeBorder[index - 1].Type, activeBorder[index].Type);
+                (Colour, Colour) edgeType = (activeBorder[borderIndex - 1].Type, activeBorder[borderIndex].Type);
+
+                // edge has a change in colour
                 if (edgeType.Item1 != edgeType.Item2)
                 {
+                    // the colour change is opposite the previous edge
                     if (OppositeEdges(edgeType, edges.LastOrDefault().Type))
                     {
                         int startIndex = WrapIndex(edges.LastOrDefault().Index - 1, activeBorder.Count);
 
+                        // create and connect a new node to the 'palindrome' nodes
                         QuiltNode newNode = new QuiltNode(nextNodeId++, edgeType.Item2);
                         if (drawGraph)
                         {
-                            this.graphDrawer.JoinNode(newNode, WrapRange(activeBorder, startIndex, index));
+                            this.graphDrawer.JoinNode(newNode, WrapRange(activeBorder, startIndex, borderIndex));
                         }
 
+                        // remove the nodes from the center of the 'palindrome'
                         int nextIndex = WrapIndex(startIndex + 1, activeBorder.Count);
-                        foreach (QuiltNode node in WrapRange(activeBorder, startIndex + 1, index - 1))
+                        foreach (QuiltNode node in WrapRange(activeBorder, startIndex + 1, borderIndex - 1))
                         {
                             activeBorder.Remove(node);
                         }
 
+                        // replace the removed nodes with the new active node
                         activeBorder.Insert(WrapIndex(edges.LastOrDefault().Index, activeBorder.Count), newNode);
-                        index = nextIndex;
+                        borderIndex = nextIndex;
 
+                        // pop the edge stack
                         edges.RemoveAt(edges.Count - 1);
                     }
                     else
                     {
-                        edges.Add(new QuiltEdge(edgeType, index));
+                        edges.Add(new QuiltEdge(edgeType, borderIndex));
                     }
                 }
 
-                index++;
+                borderIndex++;
             }
 
-            QuiltNode capstoneNode = new QuiltNode(nextNodeId++, Colour.Blue);
+            // final node connects to all active nodes, colour does not matter
+            QuiltNode capstoneNode = new QuiltNode(nextNodeId++, Colour.Red);
             if (drawGraph)
             {
                 this.graphDrawer.JoinNode(capstoneNode, activeBorder, true);

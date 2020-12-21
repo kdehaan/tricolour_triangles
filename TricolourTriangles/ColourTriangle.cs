@@ -23,7 +23,7 @@ namespace TricolourTriangles
             string input = Console.ReadLine();
             try
             {
-                Quilt quilt = new Quilt(int.Parse(input));
+                MinColourTriangleQuilt quilt = new MinColourTriangleQuilt(int.Parse(input));
                 Console.WriteLine(string.Format(
                     "This quilt can be made such that {0} triangles are made with all three colours", quilt.NumTricolourTriangles));
                 quilt.Visualise();

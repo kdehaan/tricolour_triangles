@@ -56,7 +56,8 @@
     <Compile Include="Colour.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GraphDrawer.cs" />
-    <Compile Include="Quilt.cs" />
+    <Compile Include="IQuilt.cs" />
+    <Compile Include="MinColourTriangleQuilt.cs" />
     <Compile Include="ColourTriangle.cs" />
     <Compile Include="QuiltEdge.cs" />
     <Compile Include="QuiltNode.cs" />
