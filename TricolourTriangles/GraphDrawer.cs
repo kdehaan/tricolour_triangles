@@ -67,6 +67,19 @@ namespace TricolourTriangles
             this.form.ShowDialog();
         }
 
+        /// <summary>
+        /// Creates edges between the primary node and the list of other nodes.
+        /// </summary>
+        /// <param name="node">Primary Node.</param>
+        /// <param name="activeNodes">Nodes to connect to.</param>
+        public void JoinNode(QuiltNode node, List<QuiltNode> activeNodes)
+        {
+            foreach (QuiltNode activeNode in activeNodes)
+            {
+                this.CreateEdge(node, activeNode);
+            }
+        }
+
         private void CreateEdge(QuiltNode a, QuiltNode b)
         {
             Microsoft.Msagl.Drawing.Edge edge = this.graph.AddEdge(a.Id.ToString(), b.Id.ToString());
@@ -79,7 +92,5 @@ namespace TricolourTriangles
             node.Attr.Color = ColourReference[quiltNode.Type];
             node.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Circle;
         }
-
-        // public void JoinNode(int nodeId, List<>)
     }
 }

@@ -13,8 +13,8 @@ namespace TricolourTriangles
     /// </summary>
     public class Quilt
     {
-
         private int currentId = 0;
+        private GraphDrawer graphDrawer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Quilt"/> class using a specific border.
@@ -24,6 +24,7 @@ namespace TricolourTriangles
         {
             this.Border = border;
             this.currentId = border.Count;
+            this.Initialize();
         }
 
         /// <summary>
@@ -34,6 +35,7 @@ namespace TricolourTriangles
         {
             this.Border = CreateBorder(perimeterLength);
             this.currentId = perimeterLength;
+            this.Initialize();
         }
 
         /// <summary>
@@ -45,6 +47,26 @@ namespace TricolourTriangles
         /// Gets the minimum number of three colour triangles possible for this quilt.
         /// </summary>
         public int NumTriangles { get; private set; }
+
+        private void Initialize()
+        {
+            this.graphDrawer = new GraphDrawer(this.Border);
+            this.FindMinTricolourTriangles();
+        }
+
+        private void FindMinTricolourTriangles()
+        {
+            List<QuiltNode> activeBorder = new List<QuiltNode>(this.Border);
+
+        }
+
+        /// <summary>
+        /// Draws the quilt as a graph.
+        /// </summary>
+        public void Visualise()
+        {
+            this.graphDrawer.DrawGraph();
+        }
 
         private static List<QuiltNode> CreateBorder(int perimeterLength)
         {
@@ -60,6 +82,7 @@ namespace TricolourTriangles
                 .Select(i => new QuiltNode(i, (Colour)colourTypes.GetValue(random.Next(colourTypes.Length))))
                 .ToList();
         }
+
 
         private int GetNextId()
         {
