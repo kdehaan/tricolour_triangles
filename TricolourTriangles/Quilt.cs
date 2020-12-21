@@ -37,6 +37,7 @@ namespace TricolourTriangles
             {
                 this.graphDrawer = new GraphDrawer(this.Border);
             }
+
             this.FindQuiltPatches(drawGraph);
         }
 
@@ -60,7 +61,7 @@ namespace TricolourTriangles
 
         private static List<QuiltNode> CreateRandomBorder(int perimeterLength)
         {
-            Random random = new Random(0);
+            Random random = new Random();
             if (perimeterLength < 3)
             {
                 throw new ArgumentException("Parameter cannot be less than 3", nameof(perimeterLength));
@@ -150,7 +151,7 @@ namespace TricolourTriangles
             QuiltNode capstoneNode = new QuiltNode(nextNodeId++, Colour.Blue);
             if (drawGraph)
             {
-                this.graphDrawer.JoinNode(capstoneNode, activeBorder);
+                this.graphDrawer.JoinNode(capstoneNode, activeBorder, true);
             }
 
             this.NumTricolourTriangles = edges.Count / 3;

@@ -21,7 +21,7 @@ namespace TricolourTriangles
         }
 
         /// <summary>
-        /// Gets the colour-to-colour order transition (ex., Red-Green or Green-Blue)
+        /// Gets the colour-to-colour order transition (ex., Red-Green or Green-Blue).
         /// </summary>
         public (Colour, Colour) Type { get; }
 

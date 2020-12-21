@@ -37,7 +37,7 @@ namespace TricolourTriangles
             // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct
             foreach (QuiltNode node in border)
             {
-                this.CreateOuterNode(node);
+                this.CreateNode(node);
 
                 if (lastNode.Id == -1)
                 {
@@ -72,9 +72,10 @@ namespace TricolourTriangles
         /// </summary>
         /// <param name="node">Primary Node.</param>
         /// <param name="activeNodes">Nodes to connect to.</param>
-        public void JoinNode(QuiltNode node, List<QuiltNode> activeNodes)
+        /// <param name="emphasis">Highlight the created node.</param>
+        public void JoinNode(QuiltNode node, List<QuiltNode> activeNodes, bool emphasis = false)
         {
-            this.CreateNode(node);
+            this.CreateNode(node, emphasis);
             foreach (QuiltNode activeNode in activeNodes)
             {
                 this.CreateEdge(node, activeNode);
@@ -87,18 +88,15 @@ namespace TricolourTriangles
             edge.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
         }
 
-        private void CreateNode(QuiltNode quiltNode)
+        private void CreateNode(QuiltNode quiltNode, bool emphasis = false)
         {
             Microsoft.Msagl.Drawing.Node node = this.graph.AddNode(quiltNode.Id.ToString());
             node.Attr.Color = ColourReference[quiltNode.Type];
             node.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Circle;
-        }
-
-        private void CreateOuterNode(QuiltNode quiltNode)
-        {
-            Microsoft.Msagl.Drawing.Node node = this.graph.AddNode(quiltNode.Id.ToString());
-            node.Attr.Color = ColourReference[quiltNode.Type];
-            node.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Circle;
+            if (emphasis)
+            {
+                node.Attr.FillColor = ColourReference[quiltNode.Type];
+            }
         }
     }
 }

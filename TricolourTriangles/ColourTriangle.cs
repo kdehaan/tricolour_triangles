@@ -16,18 +16,17 @@ namespace TricolourTriangles
         /// <summary>
         /// Main console function.
         /// </summary>
-        /// <param name="args">command line arguments.</param>
         public static void Main()
         {
             Console.WriteLine("Input a perimeter length (must be >= 3):");
 
-            //string input = Console.ReadLine();
-            string input = "28";
+            string input = Console.ReadLine();
             try
             {
                 Quilt quilt = new Quilt(int.Parse(input));
+                Console.WriteLine(string.Format(
+                    "This quilt can be made such that {0} triangles are made with all three colours", quilt.NumTricolourTriangles));
                 quilt.Visualise();
-                //input = Console.ReadLine();
             }
             catch (Exception e) when (e is ArgumentException || e is FormatException)
             {
