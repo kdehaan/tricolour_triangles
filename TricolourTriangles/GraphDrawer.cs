@@ -37,7 +37,7 @@ namespace TricolourTriangles
             // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct
             foreach (QuiltNode node in border)
             {
-                this.CreateNode(node);
+                this.CreateOuterNode(node);
 
                 if (lastNode.Id == -1)
                 {
@@ -74,6 +74,7 @@ namespace TricolourTriangles
         /// <param name="activeNodes">Nodes to connect to.</param>
         public void JoinNode(QuiltNode node, List<QuiltNode> activeNodes)
         {
+            this.CreateNode(node);
             foreach (QuiltNode activeNode in activeNodes)
             {
                 this.CreateEdge(node, activeNode);
@@ -87,6 +88,13 @@ namespace TricolourTriangles
         }
 
         private void CreateNode(QuiltNode quiltNode)
+        {
+            Microsoft.Msagl.Drawing.Node node = this.graph.AddNode(quiltNode.Id.ToString());
+            node.Attr.Color = ColourReference[quiltNode.Type];
+            node.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Circle;
+        }
+
+        private void CreateOuterNode(QuiltNode quiltNode)
         {
             Microsoft.Msagl.Drawing.Node node = this.graph.AddNode(quiltNode.Id.ToString());
             node.Attr.Color = ColourReference[quiltNode.Type];

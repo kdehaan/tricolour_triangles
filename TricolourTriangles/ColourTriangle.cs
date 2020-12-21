@@ -21,12 +21,13 @@ namespace TricolourTriangles
         {
             Console.WriteLine("Input a perimeter length (must be >= 3):");
 
-            string input = Console.ReadLine();
+            //string input = Console.ReadLine();
+            string input = "28";
             try
             {
                 Quilt quilt = new Quilt(int.Parse(input));
-                GraphDrawer drawer = new GraphDrawer(quilt.Border);
-                drawer.DrawGraph();
+                quilt.Visualise();
+                //input = Console.ReadLine();
             }
             catch (Exception e) when (e is ArgumentException || e is FormatException)
             {

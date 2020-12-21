@@ -6,4 +6,3 @@
 using System.Diagnostics.CodeAnalysis;
 
 [assembly: SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1602:Enumeration items should be documented", Justification = "Overkill for this project", Scope = "type", Target = "~T:TricolourTriangles.Colour")]
-[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1202:Elements should be ordered by access", Justification = "Code grouping deemed more valueable", Scope = "member", Target = "~M:TricolourTriangles.Quilt.Visualise")]

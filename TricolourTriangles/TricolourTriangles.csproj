@@ -58,6 +58,7 @@
     <Compile Include="GraphDrawer.cs" />
     <Compile Include="Quilt.cs" />
     <Compile Include="ColourTriangle.cs" />
+    <Compile Include="QuiltEdge.cs" />
     <Compile Include="QuiltNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

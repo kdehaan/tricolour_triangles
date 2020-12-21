@@ -35,7 +35,7 @@ namespace TricolourTriangles.UnitTests
         [InlineData(65536)] //2^16
         public void TestPerimeterInitPass(int perimeterLength)
         {
-            _ = new Quilt(perimeterLength);
+            _ = new Quilt(perimeterLength, false);
         }
 
 
@@ -46,22 +46,22 @@ namespace TricolourTriangles.UnitTests
         [InlineData(2)]
         public void TestPerimeterInitFail(int perimeterLength)
         {
-            void initQuilt() => new Quilt(perimeterLength);
+            void initQuilt() => new Quilt(perimeterLength, false);
             Assert.Throws<ArgumentException>(() => initQuilt());
         }
 
         [Fact]
         public void TestGetBorder()
         {
-            Quilt quilt = new Quilt(sampleBorder);
+            Quilt quilt = new Quilt(sampleBorder, false);
             Assert.Equal(sampleBorder, quilt.Border);
         }
 
         [Fact]
         public void TestMin3()
         {
-            Quilt quilt = new Quilt(sampleBorderMin3);
-            Assert.Equal(3, quilt.FindMinTricolourTriangles());
+            Quilt quilt = new Quilt(sampleBorderMin3, false);
+            Assert.Equal(3, quilt.NumTricolourTriangles);
         }
 
     }
