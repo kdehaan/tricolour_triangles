@@ -7,14 +7,26 @@ using System.Collections.Generic;
 namespace TricolourTriangles.UnitTests
 {
     
-    public class PolygonTest
+    public class QuiltTest
     {
 
-        static readonly List<PolygonNode> sampleBorder = new List<PolygonNode>(
-            new PolygonNode[] {
-                new PolygonNode(0, Colour.Red),
-                new PolygonNode(1, Colour.Green),
-                new PolygonNode(2, Colour.Blue),
+        static readonly List<QuiltNode> sampleBorder = new List<QuiltNode>(
+            new QuiltNode[] {
+                new QuiltNode(0, Colour.Red),
+                new QuiltNode(1, Colour.Green),
+                new QuiltNode(2, Colour.Blue),
+            });
+        static readonly List<QuiltNode> sampleBorderMin3 = new List<QuiltNode>(
+            new QuiltNode[] {
+                new QuiltNode(0, Colour.Red),
+                new QuiltNode(1, Colour.Green),
+                new QuiltNode(2, Colour.Blue),
+                new QuiltNode(4, Colour.Red),
+                new QuiltNode(5, Colour.Green),
+                new QuiltNode(6, Colour.Blue),
+                new QuiltNode(7, Colour.Red),
+                new QuiltNode(8, Colour.Green),
+                new QuiltNode(9, Colour.Blue),
             });
         //private readonly Polygon samplePolygon = new Polygon(sampleBorder);
 
@@ -23,7 +35,7 @@ namespace TricolourTriangles.UnitTests
         [InlineData(65536)] //2^16
         public void TestPerimeterInitPass(int perimeterLength)
         {
-            _ = new Polygon(perimeterLength);
+            _ = new Quilt(perimeterLength);
         }
 
 
@@ -34,15 +46,22 @@ namespace TricolourTriangles.UnitTests
         [InlineData(2)]
         public void TestPerimeterInitFail(int perimeterLength)
         {
-            void initPolygon() => new Polygon(perimeterLength);
-            Assert.Throws<ArgumentException>(() => initPolygon());
+            void initQuilt() => new Quilt(perimeterLength);
+            Assert.Throws<ArgumentException>(() => initQuilt());
         }
 
         [Fact]
         public void TestGetBorder()
         {
-            Polygon polygon = new Polygon(sampleBorder);
-            Assert.Equal(sampleBorder, polygon.Border);
+            Quilt quilt = new Quilt(sampleBorder);
+            Assert.Equal(sampleBorder, quilt.Border);
+        }
+
+        [Fact]
+        public void TestMin3()
+        {
+            Quilt quilt = new Quilt(sampleBorderMin3);
+            Assert.Equal(3, quilt.FindMinTricolourTriangles());
         }
 
     }

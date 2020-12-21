@@ -1,26 +1,20 @@
-﻿// <copyright file="PolygonNode.cs" company="Kevin de Haan (github.com/kdehaan)">
+﻿// <copyright file="QuiltNode.cs" company="Kevin de Haan (github.com/kdehaan)">
 // Written by Kevin de Haan (github.com/kdehaan)
 // </copyright>
 
 namespace TricolourTriangles
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
     /// <summary>
-    /// Represents the id (unique name) and type (colour) of a node in a polygon.
+    /// Represents the id (unique name) and type (colour) of a node in a quilt.
     /// </summary>
-    public struct PolygonNode
+    public struct QuiltNode
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PolygonNode"/> struct.
+        /// Initializes a new instance of the <see cref="QuiltNode"/> struct.
         /// </summary>
         /// <param name="id">Unique node identifier (uniqueness not implicitly guaranteed).</param>
         /// <param name="type">One of Red, Blue or Green (enum type).</param>
-        public PolygonNode(int id, Colour type)
+        public QuiltNode(int id, Colour type)
         {
             this.Id = id;
             this.Type = type;

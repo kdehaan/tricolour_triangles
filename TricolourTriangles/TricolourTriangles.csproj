@@ -56,9 +56,9 @@
     <Compile Include="Colour.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GraphDrawer.cs" />
-    <Compile Include="Polygon.cs" />
+    <Compile Include="Quilt.cs" />
     <Compile Include="ColourTriangle.cs" />
-    <Compile Include="PolygonNode.cs" />
+    <Compile Include="QuiltNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

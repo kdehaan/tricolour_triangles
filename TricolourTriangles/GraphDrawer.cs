@@ -28,14 +28,14 @@ namespace TricolourTriangles
         /// Initializes a new instance of the <see cref="GraphDrawer"/> class.
         /// </summary>
         /// <param name="border">Inital node perimeter.</param>
-        public GraphDrawer(List<PolygonNode> border)
+        public GraphDrawer(List<QuiltNode> border)
         {
-            PolygonNode lastNode = new PolygonNode(-1, Colour.Red);
-            PolygonNode firstNode = new PolygonNode(-1, Colour.Red);
+            QuiltNode lastNode = new QuiltNode(-1, Colour.Red);
+            QuiltNode firstNode = new QuiltNode(-1, Colour.Red);
 
             // Note: structs are copied on assignment
             // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct
-            foreach (PolygonNode node in border)
+            foreach (QuiltNode node in border)
             {
                 this.CreateNode(node);
 
@@ -67,16 +67,16 @@ namespace TricolourTriangles
             this.form.ShowDialog();
         }
 
-        private void CreateEdge(PolygonNode a, PolygonNode b)
+        private void CreateEdge(QuiltNode a, QuiltNode b)
         {
             Microsoft.Msagl.Drawing.Edge edge = this.graph.AddEdge(a.Id.ToString(), b.Id.ToString());
             edge.Attr.ArrowheadAtTarget = Microsoft.Msagl.Drawing.ArrowStyle.None;
         }
 
-        private void CreateNode(PolygonNode polygonNode)
+        private void CreateNode(QuiltNode quiltNode)
         {
-            Microsoft.Msagl.Drawing.Node node = this.graph.AddNode(polygonNode.Id.ToString());
-            node.Attr.Color = ColourReference[polygonNode.Type];
+            Microsoft.Msagl.Drawing.Node node = this.graph.AddNode(quiltNode.Id.ToString());
+            node.Attr.Color = ColourReference[quiltNode.Type];
             node.Attr.Shape = Microsoft.Msagl.Drawing.Shape.Circle;
         }
 

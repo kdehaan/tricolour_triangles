@@ -8,7 +8,7 @@ namespace TricolourTriangles
     using System.Collections.Generic;
 
     /// <summary>
-    /// Finds a way to fill a polygon with triangles such that the fewest amount of 'tricolour'
+    /// Finds a way to fill a 'quilt' with triangles such that the fewest amount of 'tricolour'
     /// triangles are produced.
     /// </summary>
     public class ColourTriangle
@@ -24,8 +24,8 @@ namespace TricolourTriangles
             string input = Console.ReadLine();
             try
             {
-                Polygon polygon = new Polygon(int.Parse(input));
-                GraphDrawer drawer = new GraphDrawer(polygon.Border);
+                Quilt quilt = new Quilt(int.Parse(input));
+                GraphDrawer drawer = new GraphDrawer(quilt.Border);
                 drawer.DrawGraph();
             }
             catch (Exception e) when (e is ArgumentException || e is FormatException)
