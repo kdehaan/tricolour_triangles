@@ -62,6 +62,12 @@ namespace TricolourTriangles.UnitTests
             Assert.Equal(3, quilt.NumTricolourTriangles);
         }
 
+        [Fact(Timeout = 4000)]
+        public void TestLargeGraph()
+        {
+            MinColourTriangleQuilt quilt = new MinColourTriangleQuilt(60000, false);
+            Assert.True(quilt.NumTricolourTriangles > -1);
+        }
     }
 }
 
