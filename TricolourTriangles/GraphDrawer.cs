@@ -1,11 +1,18 @@
-﻿// <copyright file="GraphDrawer.cs" company="Kevin de Haan (github.com/kdehaan)">
+// <copyright file="GraphDrawer.cs" company="Kevin de Haan (github.com/kdehaan)">
 // Written by Kevin de Haan (github.com/kdehaan)
 // </copyright>
 
 namespace TricolourTriangles
 {
+    using System;
     using System.Collections.Generic;
     using System.Windows.Forms;
+    using Microsoft.Msagl.Core.Geometry;
+    using Microsoft.Msagl.Core.Geometry.Curves;
+    using Microsoft.Msagl.Core.Layout;
+    using Microsoft.Msagl.Core.Routing;
+    using Microsoft.Msagl.GraphViewerGdi;
+    using Microsoft.Msagl.Layout.Layered;
 
     /// <summary>
     /// Used to maintain and visualize a representation of an evolving Polygon Graph.
@@ -20,8 +27,8 @@ namespace TricolourTriangles
             { Colour.Blue, Microsoft.Msagl.Drawing.Color.Blue },
         };
 
-        private readonly System.Windows.Forms.Form form = new System.Windows.Forms.Form();
-        private readonly Microsoft.Msagl.GraphViewerGdi.GViewer viewer = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+        private readonly Form form = new Form();
+        private readonly GViewer viewer = new GViewer();
         private readonly Microsoft.Msagl.Drawing.Graph graph = new Microsoft.Msagl.Drawing.Graph("graph");
 
         /// <summary>
